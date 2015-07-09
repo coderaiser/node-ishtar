@@ -46,7 +46,7 @@ ishtar(prefix, function() {
 ## Server
 
 ```js
-var ishtar       = require('ishtar'),
+var ishtar      = require('ishtar'),
     http        = require('http'),
     express     = require('express'),
     io          = require('socket.io'),
