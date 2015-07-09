@@ -1,0 +1,39 @@
+{
+  "name": "ishtar",
+  "version": "1.0.0",
+  "description": "pack and extract .tar.gz archives middleware",
+  "main": "lib/ishtar.js",
+  "scripts": {
+    "bower": "bower",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/coderaiser/node-ishtar.git"
+  },
+  "keywords": [
+    "pack",
+    "extract",
+    "archive",
+    "tar",
+    "gzip",
+    "emitter",
+    "file",
+    "middleware"
+  ],
+  "author": "coderaiser <mnemonic.enemy@gmail.com> (http://coderaiser.github.io/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/coderaiser/node-ishtar/issues"
+  },
+  "homepage": "https://github.com/coderaiser/node-ishtar",
+  "dependencies": {
+    "jaguar": "~1.1.0",
+    "join-io": "~1.4.0",
+    "mellow": "~2.0.0",
+    "mollify": "~1.0.4"
+  },
+  "devDependencies": {
+    "bower": "~1.4.1"
+  }
+}

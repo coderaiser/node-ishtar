@@ -1,0 +1,25 @@
+{
+  "name": "spero",
+  "version": "1.0.17",
+  "homepage": "https://github.com/coderaiser/node-spero",
+  "authors": [
+    "coderaiser <mnemonic.enemy@gmail.com>"
+  ],
+  "description": "pack and extract .tar.gz archives middleware",
+  "main": "lib/ishtar.js",
+  "keywords": [
+    "file",
+    "edit"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "node_modules",
+    "modules"
+  ],
+  "dependencies": {
+    "execon": "~1.2.0",
+    "load": "~1.1.4",
+    "emitify": "~1.2.0"
+  }
+}
