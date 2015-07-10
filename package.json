@@ -2,7 +2,7 @@
   "name": "ishtar",
   "version": "1.0.0",
   "description": "pack and extract .tar.gz archives middleware",
-  "main": "lib/ishtar.js",
+  "main": "lib/server.js",
   "scripts": {
     "bower": "bower"
   },
