@@ -1,6 +1,6 @@
 {
   "name": "ishtar",
-  "version": "1.1.6",
+  "version": "1.2.0",
   "description": "pack and extract .tar.gz archives middleware",
   "main": "lib/server.js",
   "scripts": {
