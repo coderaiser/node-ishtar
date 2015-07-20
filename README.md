@@ -16,7 +16,7 @@ Could be loaded from url `/ishtar/ishtar.js`.
 var prefix = '/ishtar';
 
 /* could be one argument: callback */
-ishtar(prefix, function() {
+ishtar(prefix, function(packer) {
     var from        = '/',
         to          = '/tmp',
         names       = [
@@ -28,15 +28,15 @@ ishtar(prefix, function() {
         
         end     = function() {
             console.log('end');
-            ishtar.removeListener('progress', progress);
-            ishtar.removeListener('end', end);
+            packer.removeListener('progress', progress);
+            packer.removeListener('end', end);
         };
     
-    ishtar(from, to, names);
+    packer.pack(from, to, names);
     
-    ishtar.on('progress', progress);
-    ishtar.on('end', end);
-    ishtar.on('error', function(error) {
+    packer.on('progress', progress);
+    packer.on('end', end);
+    packer.on('error', function(error) {
         console.error(error.message);
     });
 });
