@@ -1,3 +1,9 @@
+2015.07.24, v1.2.2
+
+fix:
+- (packer) listen: do not pass root
+
+
 2015.07.21, v1.2.1
 
 feature:
