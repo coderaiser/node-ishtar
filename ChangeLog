@@ -1,3 +1,9 @@
+2016.02.01, v1.3.1
+
+fix:
+- (client) ProgressProto: socketPath
+
+
 2016.02.01, v1.3.0
 
 feature:
