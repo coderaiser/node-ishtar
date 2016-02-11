@@ -1,4 +1,4 @@
-# Ishtar [![License][LicenseIMGURL]][LicenseURL] [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL] [![Build Status][BuildStatusIMGURL]][BuildStatusURL]
+# Ishtar [![License][LicenseIMGURL]][LicenseURL] [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
 
 pack and extract .tar.gz archives middleware based on [socket.io](http://socket.io "Socket.io") and [ishtar](https://github.com/coderaiser/node-jaguar "Jaguar").
 
@@ -73,12 +73,9 @@ ishtar.listen(socket, {
 MIT
 
 [NPMIMGURL]:                https://img.shields.io/npm/v/ishtar.svg?style=flat
-[BuildStatusIMGURL]:        https://img.shields.io/travis/coderaiser/node-ishtar/master.svg?style=flat
 [DependencyStatusIMGURL]:   https://img.shields.io/gemnasium/coderaiser/node-ishtar.svg?style=flat
 [LicenseIMGURL]:            https://img.shields.io/badge/license-MIT-317BF9.svg?style=flat
 [NPMURL]:                   https://npmjs.org/package/ishtar "npm"
-[BuildStatusURL]:           https://travis-ci.org/coderaiser/node-ishtar  "Build Status"
 [DependencyStatusURL]:      https://gemnasium.com/coderaiser/node-ishtar "Dependency Status"
 [LicenseURL]:               https://tldrlegal.com/license/mit-license "MIT License"
-
 
