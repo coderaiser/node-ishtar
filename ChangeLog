@@ -1,3 +1,12 @@
+2016.04.20, v1.3.2
+
+fix:
+- (packaer) getWin32Msg: jaguar -> pack
+
+feature:
+- (bower) loadremote v1.2.0
+
+
 2016.02.01, v1.3.1
 
 fix:
