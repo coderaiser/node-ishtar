@@ -1,6 +1,6 @@
 # Ishtar [![License][LicenseIMGURL]][LicenseURL] [![NPM version][NPMIMGURL]][NPMURL] [![Dependency Status][DependencyStatusIMGURL]][DependencyStatusURL]
 
-pack and extract .tar.gz archives middleware based on [socket.io](http://socket.io "Socket.io") and [ishtar](https://github.com/coderaiser/node-jaguar "Jaguar").
+pack and extract .tar.gz archives middleware based on [socket.io](http://socket.io "Socket.io") and [jaguar](https://github.com/coderaiser/node-jaguar "Jaguar").
 
 ## Install
 
