@@ -59,7 +59,9 @@ server.listen(port);
 
 app.use(ishtar({
     minify: true,
-    online: true
+    online: true,
+    authCheck: function(socket, success) {
+    }
 });
 
 ishtar.listen(socket, {
