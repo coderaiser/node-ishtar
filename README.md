@@ -70,6 +70,10 @@ ishtar.listen(socket, {
 });
 ```
 
+## Related
+
+- [Salam](https://github.com/coderaiser/node-salam "Salam") - Pack and extract zip archives middleware.
+
 ## License
 
 MIT
