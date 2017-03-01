@@ -1,3 +1,11 @@
+2017.03.01, v1.5.4
+
+feature:
+- (modules) socket.io v1.7.3
+- (package) nyc v10.0.0
+- (package) nyc v9.0.1
+
+
 2016.11.08, v1.5.3
 
 feature:
