@@ -13,30 +13,30 @@ npm i ishtar --save
 Could be loaded from url `/ishtar/ishtar.js`.
 
 ```js
-var prefix = '/ishtar';
+const prefix = '/ishtar';
 
 /* could be one argument: callback */
 ishtar(prefix, function(packer) {
-    var from        = '/',
-        to          = '/tmp',
-        names       = [
-            'bin'
-        ],
-        progress    = function(value) {
-            console.log('progress:', value);
-        },
-        
-        end     = function() {
-            console.log('end');
-            packer.removeListener('progress', progress);
-            packer.removeListener('end', end);
-        };
+    const from = '/';
+    const to = '/tmp';
+    const names = [
+        'bin'
+    ];
+    const progress = (value) => {
+        console.log('progress:', value);
+    },
+    
+    const end = () => {
+        console.log('end');
+        packer.removeListener('progress', progress);
+        packer.removeListener('end', end);
+    };
     
     packer.pack(from, to, names);
     
     packer.on('progress', progress);
     packer.on('end', end);
-    packer.on('error', function(error) {
+    packer.on('error', (error) => {
         console.error(error.message);
     });
 });
@@ -46,19 +46,18 @@ ishtar(prefix, function(packer) {
 ## Server
 
 ```js
-var ishtar      = require('ishtar'),
-    http        = require('http'),
-    express     = require('express'),
-    io          = require('socket.io'),
-    app         = express(),
-    port        = 1337,
-    server      = http.createServer(app),
-    socket      = io.listen(server);
-    
+const ishtar = require('ishtar');
+const http = require('http');
+const express = require('express');
+const io = require('socket.io');
+const app = express();
+const port = 1337;
+const server = http.createServer(app);
+const socket = io.listen(server);
+
 server.listen(port);
 
 app.use(ishtar({
-    minify: true,
     online: true,
     authCheck: function(socket, success) {
     }
@@ -68,6 +67,14 @@ ishtar.listen(socket, {
     prefix: '/ishtar',   /* default              */
     root: '/',          /* string or function   */
 });
+```
+
+## Environments
+
+In old `node.js` environments that supports `es5` only, `dword` could be used with:
+
+```js
+var ishtar = require('ishtar/legacy');
 ```
 
 ## Related

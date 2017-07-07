@@ -1,9 +1,9 @@
 'use strict';
 
-var jaguar = require('jaguar/legacy');
-var mellow = require('mellow');
+const jaguar = require('jaguar/legacy');
+const mellow = require('mellow');
 
-module.exports = function(socket, options) {
+module.exports = (socket, options) => {
     if (!options)
         options = {};
     
@@ -11,29 +11,22 @@ module.exports = function(socket, options) {
 };
 
 function getRoot(root) {
-    var value;
-    
     if (typeof root === 'function')
-        value = root();
-    else
-        value = root;
+        return root();
     
-    return value;
+    return root;
 }
 
 function isRootWin32(path, root) {
-    var isRoot      = path === '/',
-        isWin32     = process.platform === 'win32',
-        isConfig    = root === '/';
+    const isRoot = path === '/';
+    const isWin32 = process.platform === 'win32';
+    const isConfig = root === '/';
     
     return isWin32 && isRoot && isConfig;
 }
 
 function getWin32RootMsg() {
-    var message  = 'Could not pack from/to root on windows!',
-        error    = Error(message);
-    
-    return error;
+    return Error('Could not pack from/to root on windows!');
 }
 
 function check(authCheck) {
@@ -42,40 +35,40 @@ function check(authCheck) {
 }
 
 function listen(socket, options) {
-    var authCheck = options.authCheck;
-    var prefix  = options.prefix || 'ishtar';
-    var root    = options.root   || '/';
+    const authCheck = options.authCheck;
+    const prefix = options.prefix || 'ishtar';
+    const root = options.root   || '/';
     
     check(authCheck);
     
     socket.of(prefix)
-        .on('connection', function(socket) {
+        .on('connection', (socket) => {
             if (!authCheck)
+                return connection(root, socket);
+            
+            authCheck(socket, () => {
                 connection(root, socket);
-            else
-                authCheck(socket, function() {
-                    connection(root, socket);
-                });
+            });
         });
 }
 
 function connection(root, socket) {
-    socket.on('pack', function(from, to, files) {
+    socket.on('pack', (from, to, files) => {
         preprocess('pack', root, socket, from, to, files);
     });
     
-    socket.on('extract', function(from, to) {
+    socket.on('extract', (from, to) => {
         preprocess('extract', root, socket, from, to);
     });
 }
 
 function preprocess(op, root, socket, from, to, files) {
-    var value   = getRoot(root);
+    const value = getRoot(root);
     
-    from        = mellow.pathToWin(from, value);
-    to          = mellow.pathToWin(to, value);
+    from = mellow.pathToWin(from, value);
+    to = mellow.pathToWin(to, value);
     
-    if (![from, to].some(function(item) {
+    if (![from, to].some((item) => {
         return isRootWin32(item, value);
     })) {
         operate(socket, op, from, to, files);
@@ -86,7 +79,7 @@ function preprocess(op, root, socket, from, to, files) {
 }
 
 function operate(socket, op, from, to, files) {
-    var fn, packer;
+    let fn;
     
     switch(op) {
     case 'pack':
@@ -101,28 +94,28 @@ function operate(socket, op, from, to, files) {
         throw Error('op could be pack/extract only!');
     }
     
-    packer = fn(from, to, files);
+    const packer = fn(from, to, files);
     
-    packer.on('file', function(name) {
+    packer.on('file', (name) => {
         socket.emit('file', name);
     });
     
-    packer.on('progress', function(percent) {
+    packer.on('progress', (percent) => {
         socket.emit('progress', percent); 
     });
     
-    packer.on('error', function(error, name) {
-        var msg         = error.code + ' :' + error.path,
-            onAbort     = function() {
-                packer.abort();
-                socket.removeListener('abort', onAbort);
-            };
+    packer.on('error', (error, name) => {
+        const msg = error.code + ' :' + error.path;
+        const onAbort = () => {
+            packer.abort();
+            socket.removeListener('abort', onAbort);
+        };
         
         socket.emit('err', msg, name);
         socket.on('abort',  onAbort);
     });
     
-    packer.on('end', function() {
+    packer.on('end', () => {
         socket.emit('end');
     });
 }
