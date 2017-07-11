@@ -47,7 +47,8 @@
   "homepage": "https://github.com/coderaiser/node-ishtar",
   "dependencies": {
     "jaguar": "^3.0.0",
-    "mellow": "~2.0.0"
+    "mellow": "~2.0.0",
+    "currify": "^2.0.4"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
