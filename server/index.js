@@ -12,7 +12,8 @@ const packer = require('./packer');
 const ishtarFn = currify(_ishtarFn);
 const isDev = process.env.NODE_ENV === 'development';
 
-module.exports = (options = {}) => {
+module.exports = (options) => {
+    options = options || {};
     const router = Router();
     const prefix = options.prefix || '/ishtar';
     
