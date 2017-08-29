@@ -33,23 +33,23 @@ function Ishtar(prefix, socketPath) {
 function init() {
     Ishtar.prototype = Object.create(Emitify.prototype);
     
-    Ishtar.prototype.pack = (from, to, files) => {
+    Ishtar.prototype.pack = function (from, to, files) {
         this._progress.pack(from, to, files);
     };
     
-    Ishtar.prototype.extract = (from, to, files) => {
+    Ishtar.prototype.extract = function (from, to, files) {
         this._progress.extract(from, to, files);
     };
     
-    Ishtar.prototype.abort = () => {
+    Ishtar.prototype.abort = function () {
         this._progress.abort();
     };
     
-    Ishtar.prototype.pause = () => {
+    Ishtar.prototype.pause = function () {
         this._progress.pause();
     };
     
-    Ishtar.prototype.continue = () => {
+    Ishtar.prototype.continue = function () {
         this._progress.continue();
     };
 }
