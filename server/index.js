@@ -47,7 +47,7 @@ function _ishtarFn(options, req, res, next) {
     
     req.url = req.url.replace(prefix, '');
     
-    if (/^\/ishtar\.js(\.map)?$/.test(req.url))
+    if (/^\/(ishtar|0)\.js(\.map)?$/.test(req.url))
         req.url = '/dist' + req.url;
     
     if (isDev)

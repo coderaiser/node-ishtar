@@ -46,13 +46,14 @@
   },
   "homepage": "https://github.com/coderaiser/node-ishtar",
   "dependencies": {
+    "currify": "^2.0.4",
     "jaguar": "^3.0.0",
-    "mellow": "~2.0.0",
-    "currify": "^2.0.4"
+    "mellow": "~2.0.0"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
     "babel-loader": "^7.1.1",
+    "babel-plugin-dynamic-import-webpack": "^1.0.1",
     "babel-preset-env": "^1.6.0",
     "coveralls": "^3.0.0",
     "emitify": "^3.1.0",
